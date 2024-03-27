@@ -1,0 +1,43 @@
+.card{
+    margin: 10px 0 50px 500px;
+    width: 468px;
+    height: 45rem;
+    border-radius: 5px;
+    border: none;
+    /* box-shadow: 0px 0px 5px blue; */
+}
+.smallimg{
+    display: flex;
+    margin-left: 500px;
+    margin-top: 65px;
+    text-align: center;
+    cursor: pointer;
+}
+.mainimg{
+    width: 468px;
+    height: 585px;
+    text-align: center;
+    margin: auto;
+    border-radius: 5px;
+    /* border: 1px solid black; */
+}
+
+.like{
+    display: flex;
+    margin-left: 500px;
+    /* margin-top: 60px; */
+    text-align: center;
+}
+
+.cardtittle{
+    padding: 3px 0 5px 5px;
+    font-weight: 600;
+}
+
+.cardbutton{
+    width: auto;
+    padding: 8px 10px 8px 10px;
+    margin: 5px 0 0 0;
+    font-weight: bold;
+}
+

@@ -1,0 +1,16 @@
+.updateproform{
+    margin: 0 0 0 650px;
+    width: 400px;
+    border: 1px solid red;
+    
+}
+
+.updateproform Button{
+    
+    width: 400px;
+    height: 20px;
+}
+.profile{
+    margin: 100px;
+    border: 1px solid black;
+}

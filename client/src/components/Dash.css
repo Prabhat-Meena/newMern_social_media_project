@@ -1,0 +1,117 @@
+/* .container{
+    width: 100vw;
+    min-height: 100vh;
+    background: #ced8ff;
+    transition: 0.5s;
+}
+
+.container.dark {
+    background: #222;
+} */
+
+
+.card{
+    /* top: 0; */
+    border-radius: 10px;
+    border: 1px solid black;
+    width: 38rem;
+    margin-top: 20px;
+    /* border-top: none; */
+}
+
+.cardtitle{
+    border-radius: 10px;
+    margin: 20px 0 50px 20px;
+}
+
+.cardname{
+    display: flex;
+    align-items: center;
+    margin: 40px 0 0 10px;
+    text-shadow: 0.1px 0.1px rgb(163, 158, 158);
+    /* text-align: center; */
+}
+
+.rightsidebar{
+    position: fixed;
+    padding: 40px 0px 0px 10px;
+    width: 450px;
+    margin: 4.4rem 80px 0px 79rem;
+    height: 100vh;
+    /* border-left: 1px solid rgb(188, 184, 184);   */
+}
+.righthsidebarbbutton{
+    display: flex; 
+    flex-direction : row;
+    justify-content : center;
+    margin: 20px 20px 0 5px;
+    padding: 8px 10px 8px 10px;
+    cursor:pointer;
+    background-color: rgb(86, 241, 86);
+    color: white;
+    border-radius: 40%;
+    }
+
+.righthsidebarbbutton:hover{
+    background-color: blue;
+}
+
+.newDiv{
+    margin-top: 100px;
+    border: 1px solid black;
+}
+
+.sidecardname{
+     display: flex;
+    flex-direction: row; 
+     align-items: center; 
+     height: 80px;
+     /* margin-right: 50px; */
+    /* width: 70px;
+    font-size: large; */
+    /* font-weight: 600;
+   ? border-radius: 50%
+    margin-right: 15px;
+    /* border: 3px solid black  */
+
+}
+.sideimg{
+    display: flex;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    margin-right: 10px;
+    border: 3.5px solid black;
+    cursor: pointer;
+}
+
+
+.cardname img{
+    border-radius: 50%;
+    border: 0.1px solid black;
+    width: 40px;
+    margin-right: 10px;
+    /* cursor: pointer; */
+}
+
+.container{
+    /* display: "flex"
+    flex-direction: "column"
+    flex: 1
+    height: "100vh"
+    width: 100vw; */
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    /* min-height: 100; */
+    width: 100vw;
+    /* background: #2246d8; */
+    /* background: #fff; */
+    transition: 0.2s;
+  }
+  
+  .container.dark {
+    background: #222;
+  }

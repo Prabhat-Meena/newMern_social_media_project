@@ -1,0 +1,29 @@
+/* *{
+    
+   
+    
+    background-color: rgb(18, 169, 220);
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+  } */
+
+.sidbar {
+  height: 100%;
+  /* background-color: #000; */
+}
+.menudiv{
+  position: fixed;
+  height: 100vh;
+  /* margin-top: 70px; */
+  /* padding-top: 20px; */
+  border-right: 0.4px solid rgb(179, 179, 179);
+  /* background-color: #000; */
+  
+}
+
+/* .menu{
+  
+} */ 

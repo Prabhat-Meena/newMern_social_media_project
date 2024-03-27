@@ -1,0 +1,39 @@
+/* .App{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(18, 169, 220);
+}
+*/
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container{
+  /* display: "flex"
+  flex-direction: "column"
+  flex: 1
+  height: "100vh"
+  width: 100vw; */
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100vh;
+  min-height: 100vh;
+  /* background: #ced8ff; */
+  /* background: #fff; */
+  transition: 0.2s;
+}
+
+.container.dark {
+  background: #222;
+}
+
+.theme{
+  background-color: #fff;
+  color: #000;
+}
