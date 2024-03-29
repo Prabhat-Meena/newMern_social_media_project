@@ -23,15 +23,11 @@ function App() {
   const { logindata, setLoginData } = useContext(LoginContext);
   // console.log(LoginContext)
   
-  // console.log("logindata app: ", logindata )
+  console.log("logindata app: ", logindata )
 
   const history = useNavigate();
   // const [id, setId] = useState('no');
   const [email, setEmail] = useState('no')
-
-  // console.log("id", id)
-  // console.log("id", email)
-
 
 
   const DashboardValid = async () => {
@@ -66,7 +62,7 @@ function App() {
     DashboardValid();
     setTimeout(() => {
       setData(true);
-    }, 500);
+    }, 1000);
   }, []);
 
   // function Content() {
@@ -80,7 +76,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/Updateprofile" element={<Updateprofile id={email} />} />
+            <Route path="/Updateprofile" element={<Updateprofile id={email} data={logindata} />} />
             <Route path="/dash" element={<Dash setId={setEmail}/>} />
             <Route path="/password-reset" element={<PasswordReset />} />
             <Route

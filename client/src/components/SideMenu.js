@@ -1,38 +1,44 @@
 import React, { useContext } from "react";
+import { useState } from 'react';
 import { LoginContext } from './ContextProvider/Context';
 /////css
 import "../App.css"
 import { useNavigate , NavLink } from "react-router-dom"
 import "./sidebar.css"
 // export default Sidebar;
+import axios from "axios";
 import { Menu } from "antd";
-// import { useNavigate } from "react-router-dom";
 import {
   HomeOutlined,
   UserOutlined,
   PoweroffOutlined,
+  CloseCircleOutlined,
 } from "@ant-design/icons";
 
-function SideMenu(theme) {
-  const bg = theme == "light" ? "#fff" : "#222";
-  const cl = theme == "light" ? "#222" : "#222";
-  // console.log("bg", bg)
-  // console.log("cl", cl)
-  // const history = useNavigate();
+function SideMenu() {
 
   const { logindata, setLoginData } = useContext(LoginContext);
 
+  console.log("sidemenu login ", logindata)
+
   const history = useNavigate();
 
-  // const [anchorEl, setAnchorEl] = React.useState(null);
-  // const open = Boolean(anchorEl);
-  // const handleClick = (event) => {
-  //     setAnchorEl(event.currentTarget);
-  // };
-  // const handleClose = () => {
-  //     setAnchorEl(null);
-  // };
 
+  const dltUser = async (id) => {
+    const res = await axios.delete(`/${id}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (res.data.status === 401 || !res.data) {
+      console.log("errror");
+    } else {
+      // getUserData();
+      // setShow(true);
+      history("/");
+    }
+  };
 
   const logoutuser = async () => {
       let token = localStorage.getItem("usersdatatoken");
@@ -60,15 +66,13 @@ function SideMenu(theme) {
       }
   }
 
-  const goDash = () => {
-      history("/dash")
-  }
+  // const goDash = () => {
+  //     history("/dash")
+  // }
 
-  const goError = () => {
-      history("*")
-  }
-
-
+  // const goError = () => {
+  //     history("*")
+  // }
 
 
   return (
@@ -131,8 +135,21 @@ function SideMenu(theme) {
                 }}
               />
             ),
-            danger: true,
+            danger: false,
           },
+          {
+            label: "Delete",
+            key: "/register",
+            icon: (
+              <CloseCircleOutlined
+                style={{ fontSize: "20px" }}
+                onClick={() => {
+                  dltUser(logindata.ValidUserOne._id);
+                }}
+              />
+            ),
+            danger: true,
+          }
         ]}
       ></Menu>
     </div>

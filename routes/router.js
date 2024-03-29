@@ -275,19 +275,19 @@ const upload = multer({
     fileFilter:isImage
 });
 router.post("/Updateprofile",upload.single("photo"),async(req,res)=>{
-    console.log("request.bodyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",req.body)
+    // console.log("request.bodyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",req.body)
     const {filename} = req.file;
-    console.log("filename: ",filename)
-    // const {fname} = req.body;
-    // // const {email} = req.body;
+    // console.log("filename: ",filename)
+    const {fname} = req.body;
+    const {email} = req.body;
     // console.log("fname: ", fname)
     const { eid }= req.body
-    console.log("lid hellllllllllllllllllllllllllllllllllllllo", eid)
+    // console.log("lid hellllllllllllllllllllllllllllllllllllllo", eid)
 
 
-    if(!eid || !filename){
-        res.status(401).json({status:401,message:"fill all the data"})
-    }
+    // if(!eid || !filename){
+    //     res.status(401).json({status:401,message:"fill all the data"})
+    // }
 
     try {
 
@@ -298,7 +298,7 @@ router.post("/Updateprofile",upload.single("photo"),async(req,res)=>{
         //     imgpath:filename,
         //     date:date
         // });
-        const userdata = await userdb.findOneAndUpdate({email:eid}, {imgpath:filename})
+        const userdata = await userdb.findOneAndUpdate({email:eid}, {fname:fname,imgpath:filename})
         // const userdata = await userdb.findOneAndUpdate({id:eid}, {imgpath:filename})
 
         // const finaldata = userdata.save();

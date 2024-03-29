@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
     },
     imgpath:{
         type:String,
-        default: "blank_profile.jpg"
+        default: "defaultImage.jpg"
     },
     password: {
         type: String,

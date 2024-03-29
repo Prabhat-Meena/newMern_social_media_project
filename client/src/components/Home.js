@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Button from "react-bootstrap/Button";
+
 import { useNavigate } from "react-router-dom";
 
 import Card from "react-bootstrap/Card";
@@ -12,6 +12,9 @@ import "../App.css"
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { FaRegComment } from "react-icons/fa";
 import { LiaTelegram } from "react-icons/lia";
+import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
+import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
+
 
 const Home = () => {
 
@@ -91,7 +94,7 @@ const Home = () => {
                           marginLeft: "10px",
                         }}
                       >
-                        {el.fname}
+                        {el.fname} <MoreHorizOutlinedIcon style={{margin:"0 0 12px 279px"}}/>
                       </p>
                     </h5>
                     <Card className="mb-3 card">
@@ -102,7 +105,7 @@ const Home = () => {
                         className="mt-2 mainimg"
                       />
                       <Card.Body className="text-center">
-                      <FavoriteBorderIcon style={{fontSize:"35", marginRight:"16px", marginTop:"5px", cursor:"pointer"}}/> <FaRegComment style={{fontSize:"30", marginRight:"16px", cursor:"pointer"}}/> <LiaTelegram  style={{fontSize:"35", cursor:"pointer"}}/>
+                      <FavoriteBorderIcon style={{fontSize:"32", marginRight:"16px", marginTop:"5px", cursor:"pointer"}}/> <FaRegComment style={{fontSize:"28", marginRight:"16px", cursor:"pointer"}}/> <LiaTelegram  style={{fontSize:"32", cursor:"pointer"}}/><BookmarkBorderOutlinedIcon  style={{fontSize:"32", margin:"5px 0 0 302px", cursor:"pointer", padding:"0"}}/>
                         <Card.Title className="cardtittle">
                           User Name : {el.fname}
                         </Card.Title>
@@ -110,7 +113,7 @@ const Home = () => {
                           Date Added : {moment(el.date).format("L")}
                         </Card.Text>
 
-                        <Button
+                        {/* <Button
                           variant="danger"
                           className="col-lg-6 text-center cardbutton btn btn-primary"
                           // onClick={() => dltUser(el._id)}
@@ -118,10 +121,12 @@ const Home = () => {
 
                          style={{cursor:"pointer"}}>
                           View Profile
-                        </Button>
+                        </Button> */}
+                        <input type="text" name="comment" placeholder="Add a comment                                                                                                 ☺" disabled style={{width:"468px", margin:"10px 0 0 0px", border:"none", borderBottom:"0.1px solid rgb(179, 179, 179)", padding:"0 0 10px 2px"}}/>
                       </Card.Body>
                     </Card>
                   </div>
+                  
                 );
               })
             : ""}

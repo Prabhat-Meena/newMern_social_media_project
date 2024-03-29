@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 // import Button from 'react-bootstrap/Button';
 import "./mix.css"
 import axios from "axios"
@@ -10,45 +10,60 @@ import "./Updateprofile.css"
 import SideMenu from './SideMenu';
 import Navbar from './Navbar';
 import "../App.css"
-const Updateprofile = ({id}) => {
+
+
+const Updateprofile = ({id, data}) => {
   // console.log("id from update",id)
+  // console.log(
+  //   "data from app prop", data
+  // )
   const uid = id;
   console.log("uid",id)
 
-  const [fname, setFName] = useState("");
+  const [fname, setfName] = useState("");
+  const [email, setEmail] = useState("")
 
   const [file, setFile] = useState("");
+  console.log("f:", fname, "e:", email, "fi",file)
+
+  useEffect(()=>{
+    setfName(data.ValidUserOne.fname)
+    setEmail(data.ValidUserOne.email)
+    setFile(data.ValidUserOne.imgpath)
+  }, [])
+  // const params = useParams()
+  // console.log("par",params)
 
   const history = useNavigate();
 
   //update
-  const dltUser = async (e, id) => {
-    console.log("id inside", id)
+  // const dltUser = async (e, id) => {
+  //   console.log("id inside", id)
 
-    e.preventDefault();
+  //   e.preventDefault();
 
-    var formData = new FormData();
-    formData.append("photo", file);
-    formData.append("fname", fname);
+  //   var formData = new FormData();
+  //   formData.append("photo", file);
+  //   formData.append("fname", fname);
 
-    const config = {
-      headers: {
-        "Content-Type": "multipart/form-data"
-      }
-    }
-    const res = await axios.delete(`/${id}`, formData, config);
+  //   const config = {
+  //     headers: {
+  //       "Content-Type": "multipart/form-data"
+  //     }
+  //   }
+  //   const res = await axios.delete(`/${id}`, formData, config);
 
-    if (res.data.status === 401 || !res.data) {
-      console.log("errror");
-    } else {
-      // getUserData();
-      // setShow(true);
-      setTimeout(() => {
-        history("/dash")
-      }, 1000);
+  //   if (res.data.status === 401 || !res.data) {
+  //     console.log("errror");
+  //   } else {
+  //     // getUserData();
+  //     // setShow(true);
+  //     setTimeout(() => {
+  //       history("/dash")
+  //     }, 1000);
 
-    }
-  };
+  //   }
+  // };
 
   // {
   //   headers: {
@@ -57,10 +72,10 @@ const Updateprofile = ({id}) => {
   // }
 
 
-  const setdata = (e) => {
-    const { value } = e.target;
-    setFName(value);
-  }
+  // const setdata = (e) => {
+  //   const { value } = e.target;
+  //   // setFName(value);
+  // }
 
   const setimgfile = (e) => {
     setFile(e.target.files[0])
@@ -73,9 +88,11 @@ const Updateprofile = ({id}) => {
     e.preventDefault();
     var eid = uid;
     console.log("eid",eid)
+    // const params = useParams()
+    // console.log("par",params)
     var formData = new FormData();
     formData.append("photo", file);
-    // formData.append("fname", fname);
+    formData.append("fname", fname);
     formData.append("eid", eid)
 
 
@@ -96,48 +113,33 @@ const Updateprofile = ({id}) => {
       }, 1000);
     }
   }
-  
 
+  
   <Dash addUserData={addUserData}/>
 
   return (
     <>
     <Navbar />
     <SideMenu />
-    {/* <div className=''>
-      <div className="updateproform">
-          <h1 style={{margin:"300px 5px 5px 10px",}}>Upload Your Img Here</h1>
-
-          <Form className='mt-3 ' style={{height: "200px"}}>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>your email</Form.Label>
-              <Form.Control type="text" name='fname' onChange={setdata} placeholder="Enter your email first"  style={{}}/>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Select Your Image</Form.Label>
-              <Form.Control type="file" onChange={setimgfile} name='photo' placeholder="" />
-            </Form.Group>
-            <Button variant="primary" type="submit" onClick={addUserData} style={{fontWeight:"50", padding:"0"}}>
-              Update Profile
-            </Button>
-          </Form>
-        </div>
-    </div> */}
     <section className="theme" style={{height:"100vh", paddingTop:"100px"}}>
                 <div className="form_data theme">
                     <div className="form_heading">
-                        <h1>Upload Your Img Here</h1>
+                        <h1>Update Profile</h1>
                     </div>
 
                     <form>
-                        {/* <div className="form_input">
+                        <div className="form_input">
+                            <label>Name</label>
+                            <input type="text" name='fname' onChange={(e)=> setfName(e.target.value)} placeholder="Enter your email first" defaultValue={fname} />
+                        </div>
+                        <div className="form_input">
                             <label>Email</label>
-                            <input type="text" name='fname' onChange={setdata} placeholder="Enter your email first" />
-                        </div> */}
+                            <input type="text" name='fname' placeholder="Enter your email first" defaultValue={email} disabled/>
+                        </div>
                         <div className="form_input">
                             <label>Image</label>
                             <div className="two">
-                                <input type="file" onChange={setimgfile} name='photo' placeholder="" />
+                                <input type="file" onChange={setimgfile} name='photo' placeholder="choice new image"/>
                             </div>
                         </div>
                         <button  className='btn' type="submit" onClick={addUserData}>Update Profile</button>
